@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>CoinFlip</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./web3.min.js"></script>
+    <script type="text/javascript" src="./mainjsfile.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" media="screen"/>
+  </head>
+
+
+  <body>
+    <!-- Header -->
+    <div class= "main-div">
+        <h1 class="h1-header">CoinFlip</h1>
+        <div class="btn-center-div">
+            <p class="body-white">Contract address: 0xFFd11F26Af443987A0C7D648ED473137e2BE440E</p>
+        </div>
+            <div class="btn-center-div">
+              <button type="button" id="contractBalance-button" class="header-button">View Winnable Price</button>
+            </div>
+            <div class= "btn-center-div">
+              <span id = "contractValue" class="body-white"></span>
+            </div>
+    </div>
+
+        <!-- Contract Details -->
+
+    <div class= "standard-div" id="mechanics-div">
+        <h2 class= "h2">Mechanics</h2>
+        <div>
+          <p class="body">Place a bet in ether.
+            On a 50% chance, you can get your betting amount doubled.
+            Otherwise, we take your ether.
+          </p>
+        </div>
+        <br>
+        <div class="btn-center-div">
+        <button type="button" id="start-game-button" class="standard-button">Start game</button>
+        </div>
+    </div>
+
+    <div id="donate-to-the-game" class ="standard-div">
+      <h2 class= "h2">Be part of the fun!</h2>
+      <p class= "body">Donate ether to the game.</p>
+      <input type="number" placeholder="0.00" step="0.01" min="0" max="10" id="donation" name="donation"> <br><br>
+          <button type="button" id="donate-ether" class="standard-button" >Donate</button>
+          <br><br>
+          <span id= "tx-donate-hash" class="body"></span>
+    </div>
+
+    <div class= "standard-div" id= "heads-or-tails-div" style="display:none;" >
+        <h2 class= "h2">Bet</h2>
+        <p class= "body">Choose a side.</p>
+            <div class="input-group mb-3">
+              <form action="" id = "coinSide-form">
+                  <input class="checkmark"type="radio" name="side" value= "1"> Heads<br>
+                  <input class="checkmark" type="radio" name="side" value="0"> Tails<br>
+              </form>
+            </div>
+        <br><span id = "error-form" class="error-message"></span><br>
+        <button type="button" id="next-btn" class="standard-button">Next</button>
+    </div>
+
+    <div style="display:none;" class="standard-div" id="preferred-betting-amount">
+        <p class= "body">Choose an amount to bet.</p>
+        <div class="input-group mb-3">
+          <form action="" id = "betAmount-form">
+              <input type="radio" name="bet" class= "radio-1" value= "0.05"> 0.05 Ether<br>
+              <input type="radio" name="bet" class= "radio-1" value="0.2"> 0.2 Ether<br>
+          </form>
+        </div> <br>
+        <!-- Bet Button Details -->
+        <br><span id = "bet-amount-error-form" class="error-message"></span><br>
+        <div class="input-group mb-3">
+          <button type="button" id="bet_button" class="standard-button">I'm feeling lucky!</button>
+        </div>
+    </div>
+
+    <div style="display:none;" id= "result-div" class="standard-div">
+          <h2 class= "h2">Your Results:</h2>
+          <span id="result-span" class= "body"> </span> <br> <br>
+          <button type="button" id="try-again" class="standard-button">Try again</button>
+    </div>
+
+    <div id= "generating-results" class ="standard-div" style="display:none;">
+        <h2 class= "h2">Please wait while we generate results.</h2>
+        <span id= "tx-notif"class="body"></span> <br><br>
+        <span id= "tx-hash"class="body"></span> <br> <br>
+        <img src = "https://i.giphy.com/media/L05HgB2h6qICDs5Sms/giphy.webp" alt = "Loading" style="width:4%;height:4%;">
+    </div>
+
+
+  </body>
+</html>
